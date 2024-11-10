@@ -1,0 +1,136 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://tema.tres" type="Theme" id=1]
+[ext_resource path="res://Scripts/TelaInicial.gd" type="Script" id=2]
+[ext_resource path="res://Fontes/PixeloidSans-mLxMm.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/background/b5.png" type="Texture" id=4]
+[ext_resource path="res://Assets/background/b4.png" type="Texture" id=5]
+[ext_resource path="res://Assets/background/b2.png" type="Texture" id=6]
+[ext_resource path="res://Assets/background/b1.png" type="Texture" id=7]
+[ext_resource path="res://Assets/background/b3.png" type="Texture" id=8]
+
+[sub_resource type="Theme" id=12]
+
+[sub_resource type="DynamicFont" id=13]
+size = 50
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 50
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 50
+font_data = ExtResource( 3 )
+
+[node name="TelaInicial" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.4, 1 )
+motion_mirroring = Vector2( 675, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer5"]
+texture = ExtResource( 4 )
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.5, 1 )
+motion_mirroring = Vector2( 675, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
+texture = ExtResource( 5 )
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.6, 1 )
+motion_mirroring = Vector2( 675, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+texture = ExtResource( 8 )
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.7, 1 )
+motion_mirroring = Vector2( 675, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource( 6 )
+centered = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.8, 1 )
+motion_mirroring = Vector2( 675, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 7 )
+centered = false
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.392157 )
+
+[node name="TelaInicial_BTN" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -133.0
+margin_top = -150.0
+margin_right = 133.0
+margin_bottom = 97.0
+theme = SubResource( 12 )
+alignment = 1
+
+[node name="Iniciar" type="Button" parent="TelaInicial_BTN"]
+margin_top = 26.0
+margin_right = 266.0
+margin_bottom = 88.0
+focus_neighbour_top = NodePath("../Sair")
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+custom_colors/font_color_focus = Color( 0.2, 0.835294, 0.0862745, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.2, 0.835294, 0.0862745, 1 )
+custom_colors/font_color_pressed = Color( 0.901961, 0.0901961, 0.0901961, 1 )
+custom_fonts/font = SubResource( 13 )
+text = "Iniciar"
+icon_align = 1
+
+[node name="Controles" type="Button" parent="TelaInicial_BTN"]
+margin_top = 92.0
+margin_right = 266.0
+margin_bottom = 154.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+custom_colors/font_color_focus = Color( 0.2, 0.835294, 0.0862745, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.2, 0.835294, 0.0862745, 1 )
+custom_colors/font_color_pressed = Color( 0.901961, 0.0901961, 0.0901961, 1 )
+custom_fonts/font = SubResource( 14 )
+text = "Controles"
+icon_align = 1
+
+[node name="Sair" type="Button" parent="TelaInicial_BTN"]
+margin_top = 158.0
+margin_right = 266.0
+margin_bottom = 220.0
+focus_neighbour_bottom = NodePath("../Iniciar")
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+custom_colors/font_color_focus = Color( 0.2, 0.835294, 0.0862745, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.2, 0.835294, 0.0862745, 1 )
+custom_colors/font_color_pressed = Color( 0.901961, 0.0901961, 0.0901961, 1 )
+custom_fonts/font = SubResource( 15 )
+text = "Sair"
+icon_align = 1
+
+[connection signal="pressed" from="TelaInicial_BTN/Iniciar" to="." method="_on_Iniciar_pressed"]
+[connection signal="pressed" from="TelaInicial_BTN/Controles" to="." method="_on_Controles_pressed"]
+[connection signal="pressed" from="TelaInicial_BTN/Sair" to="." method="_on_Sair_pressed"]

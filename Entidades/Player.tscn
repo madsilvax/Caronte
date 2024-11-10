@@ -1,0 +1,301 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Assets/Player/Player Jump.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Player/Player Hurt.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Player/Character Idle.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Player/Player Run.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=5]
+[ext_resource path="res://Sons/jump.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Sons/Drop the Tapes - TrackTribe.mp3" type="AudioStream" id=7]
+
+[sub_resource type="Animation" id=3]
+resource_name = "Idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("textura:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("textura:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 10 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("textura:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "fall"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("textura:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 2 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("textura:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("textura:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 1 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "hit"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("textura:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("textura:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("textura:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "jump"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("textura:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("textura:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("textura:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "run"
+length = 0.54
+loop = true
+step = 0.075
+tracks/0/type = "value"
+tracks/0/path = NodePath("textura:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.075, 0.15, 0.225, 0.3, 0.375, 0.45, 0.525 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("textura:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("textura:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 8 ]
+}
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 7.51847, 15.4769 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 7.98402, 12.4171 )
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 211.575, 367.109 )
+scale = Vector2( 2, 2 )
+collision_mask = 30
+script = ExtResource( 5 )
+
+[node name="textura" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+hframes = 10
+
+[node name="anim" type="AnimationPlayer" parent="."]
+autoplay = "Idle"
+anims/Idle = SubResource( 3 )
+anims/fall = SubResource( 12 )
+anims/hit = SubResource( 9 )
+anims/jump = SubResource( 6 )
+anims/run = SubResource( 7 )
+
+[node name="colisão" type="CollisionShape2D" parent="."]
+position = Vector2( -0.497276, 1.4874 )
+shape = SubResource( 5 )
+
+[node name="raycasts" type="Node2D" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="raycasts"]
+position = Vector2( -4.98886, 11.0344 )
+enabled = true
+cast_to = Vector2( 0, 12 )
+collision_mask = 72
+
+[node name="RayCast2D2" type="RayCast2D" parent="raycasts"]
+position = Vector2( 4.0506, 11.0068 )
+enabled = true
+cast_to = Vector2( 0, 12 )
+collision_mask = 72
+
+[node name="hurtbox" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 2
+
+[node name="colisao" type="CollisionShape2D" parent="hurtbox"]
+modulate = Color( 0.0862745, 0.847059, 0.0980392, 1 )
+position = Vector2( -0.482628, -2.44838 )
+shape = SubResource( 10 )
+
+[node name="direita" type="RayCast2D" parent="."]
+position = Vector2( -1.93969, 0 )
+enabled = true
+cast_to = Vector2( 15, 0 )
+collision_mask = 2
+
+[node name="esquerda" type="RayCast2D" parent="."]
+position = Vector2( 0.959412, 0 )
+enabled = true
+cast_to = Vector2( -15, 0 )
+collision_mask = 2
+
+[node name="jumpFX" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( -0.495354, 16.1221 )
+stream = ExtResource( 6 )
+volume_db = -10.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+limit_left = 0
+limit_top = 0
+limit_bottom = 675
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+drag_margin_left = 0.4
+drag_margin_top = 1.0
+drag_margin_right = 0.4
+drag_margin_bottom = 1.0
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="Musica" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+volume_db = -20.0
+autoplay = true
+
+[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]

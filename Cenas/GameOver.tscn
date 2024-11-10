@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Fontes/PixeloidSans-mLxMm.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://tema.tres" type="Theme" id=2]
+[ext_resource path="res://Scripts/GameOver.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 1 )
+
+[node name="GameOver" type="CanvasLayer"]
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Tela GameOver" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -241.0
+margin_top = -97.0
+margin_right = 241.0
+margin_bottom = 97.0
+
+[node name="Tente Novamente" type="Button" parent="Tela GameOver"]
+margin_right = 482.0
+margin_bottom = 62.0
+theme = ExtResource( 2 )
+custom_colors/font_color_focus = Color( 0.2, 0.835294, 0.0862745, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.2, 0.835294, 0.0862745, 1 )
+custom_colors/font_color_pressed = Color( 0.901961, 0.0901961, 0.0901961, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Tente novamente"
+
+[node name="Menu inicial" type="Button" parent="Tela GameOver"]
+margin_top = 66.0
+margin_right = 482.0
+margin_bottom = 128.0
+theme = ExtResource( 2 )
+custom_colors/font_color_focus = Color( 0.2, 0.835294, 0.0862745, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.2, 0.835294, 0.0862745, 1 )
+custom_colors/font_color_pressed = Color( 0.901961, 0.0901961, 0.0901961, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Menu inicial"
+
+[node name="Sair" type="Button" parent="Tela GameOver"]
+margin_top = 132.0
+margin_right = 482.0
+margin_bottom = 194.0
+focus_neighbour_bottom = NodePath("../Iniciar")
+theme = ExtResource( 2 )
+custom_colors/font_color_focus = Color( 0.2, 0.835294, 0.0862745, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.2, 0.835294, 0.0862745, 1 )
+custom_colors/font_color_pressed = Color( 0.901961, 0.0901961, 0.0901961, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Sair"
+
+[connection signal="pressed" from="Tela GameOver/Tente Novamente" to="." method="_on_Tente_Novamente_pressed"]
+[connection signal="pressed" from="Tela GameOver/Menu inicial" to="." method="_on_Menu_inicial_pressed"]
+[connection signal="pressed" from="Tela GameOver/Sair" to="." method="_on_Sair_pressed"]

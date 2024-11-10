@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Drop the Tapes - TrackTribe.mp3-33d050231c02cba92bf15e6f262ce255.mp3str"
+
+[deps]
+
+source_file="res://Sons/Drop the Tapes - TrackTribe.mp3"
+dest_files=[ "res://.import/Drop the Tapes - TrackTribe.mp3-33d050231c02cba92bf15e6f262ce255.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

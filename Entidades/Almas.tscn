@@ -1,0 +1,115 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Assets/Collected.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Almas.gd" type="Script" id=3]
+[ext_resource path="res://Sons/coleta das almas.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Player/Alma.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Player/AlmaFX.png" type="Texture" id=6]
+
+[sub_resource type="CircleShape2D" id=20]
+radius = 8.0
+
+[sub_resource type="Animation" id=22]
+resource_name = "alma"
+length = 0.8
+loop = true
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("textura:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 0, 0, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("textura:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("textura:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 6 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "coleta"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("textura:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("textura:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 6 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("textura:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+
+[node name="Almas" type="Area2D"]
+collision_layer = 4
+script = ExtResource( 3 )
+
+[node name="textura" type="Sprite" parent="."]
+texture = ExtResource( 5 )
+
+[node name="colisão" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 20 )
+
+[node name="anim" type="AnimationPlayer" parent="."]
+autoplay = "alma"
+anims/alma = SubResource( 22 )
+anims/coleta = SubResource( 23 )
+
+[node name="almaFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = -10.0
+
+[connection signal="body_entered" from="." to="." method="_on_Almas_body_entered"]
+[connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]

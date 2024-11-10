@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/coleta das almas.ogg-9f5c9d305adb2f007156a13bbb930fbc.oggstr"
+
+[deps]
+
+source_file="res://Sons/coleta das almas.ogg"
+dest_files=[ "res://.import/coleta das almas.ogg-9f5c9d305adb2f007156a13bbb930fbc.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
